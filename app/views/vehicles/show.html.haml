@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Stock num:
+  = @vehicle.stock_num
+%p
+  %b Vin:
+  = @vehicle.vin
+%p
+  %b Year:
+  = @vehicle.year
+%p
+  %b Make:
+  = @vehicle.make
+%p
+  %b Model:
+  = @vehicle.model
+%p
+  %b Price:
+  = @vehicle.price
+%p
+  %b Status:
+  = @vehicle.status
+%p
+  %b Photo:
+  = @vehicle.photo
+
+= link_to 'Edit', edit_vehicle_path(@vehicle)
+\|
+= link_to 'Back', vehicles_path

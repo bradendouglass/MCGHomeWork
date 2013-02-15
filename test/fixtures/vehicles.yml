@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  stock_num: 1
+  vin: MyString
+  year: 1
+  make: MyString
+  model: MyString
+  price: 1
+  status: MyString
+  photo: MyString
+
+two:
+  stock_num: 1
+  vin: MyString
+  year: 1
+  make: MyString
+  model: MyString
+  price: 1
+  status: MyString
+  photo: MyString

@@ -1,0 +1,33 @@
+%h1 Listing vehicles
+
+%table
+  %tr
+    %th Stock num
+    %th Vin
+    %th Year
+    %th Make
+    %th Model
+    %th Price
+    %th Status
+    %th Photo
+    %th
+    %th
+    %th
+
+  - @vehicles.each do |vehicle|
+    %tr
+      %td= vehicle.stock_num
+      %td= vehicle.vin
+      %td= vehicle.year
+      %td= vehicle.make
+      %td= vehicle.model
+      %td= vehicle.price
+      %td= vehicle.status
+      %td= vehicle.photo
+      %td= link_to 'Show', vehicle
+      %td= link_to 'Edit', edit_vehicle_path(vehicle)
+      %td= link_to 'Destroy', vehicle, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Vehicle', new_vehicle_path
