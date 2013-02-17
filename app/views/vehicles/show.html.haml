@@ -22,8 +22,7 @@
   %b Status:
   = @vehicle.status
 %p
-  %b Photo:
-  = @vehicle.photo
+  =image_tag(@vehicle.photo_url)
 
 = link_to 'Edit', edit_vehicle_path(@vehicle)
 \|
