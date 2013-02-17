@@ -1,29 +1,45 @@
-%p#notice= notice
+.row
+  %p#notice= notice
 
-%p
-  %b Stock num:
-  = @vehicle.stock_num
-%p
-  %b Vin:
-  = @vehicle.vin
-%p
-  %b Year:
-  = @vehicle.year
-%p
-  %b Make:
-  = @vehicle.make
-%p
-  %b Model:
-  = @vehicle.model
-%p
-  %b Price:
-  = @vehicle.price
-%p
-  %b Status:
-  = @vehicle.status
-%p
-  =image_tag(@vehicle.photo_url)
+.row
+  .six.columns
+    %h3 Vehicle Info
+    %p
+      %b Stock num:
+      = @vehicle.stock_num
+    %p
+      %b Vin:
+      = @vehicle.vin
+    %p
+      %b Year:
+      = @vehicle.year
+    %p
+      %b Make:
+      = @vehicle.make
+    %p
+      %b Model:
+      = @vehicle.model
+    %p
+      %b Price:
+      = @vehicle.price
+    %p
+      %b Status:
+      = @vehicle.status
+  .six.columns
+    %h3 Vehicle Options
+    -@options.each do |option|
+      %p
+        %b Name:
+        =option.name
+      %p
+        =option.description
 
-= link_to 'Edit', edit_vehicle_path(@vehicle)
-\|
-= link_to 'Back', vehicles_path
+.row
+  %p
+    =image_tag(@vehicle.photo_url)
+
+.row
+  .five.columns
+    = link_to 'Edit', edit_vehicle_path(@vehicle)
+    \|
+    = link_to 'Back', vehicles_path

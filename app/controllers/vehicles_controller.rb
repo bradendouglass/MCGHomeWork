@@ -5,6 +5,7 @@ class VehiclesController < ApplicationController
 
   def show
     @vehicle = Vehicle.find(params[:id])
+    @options = @vehicle.vehicle_option.all
   end
 
   def new
