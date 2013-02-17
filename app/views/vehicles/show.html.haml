@@ -30,7 +30,7 @@
     -@options.each do |option|
       %p
         %b Name:
-        =option.name
+        =link_to "#{option.name}", vehicle_option_path(option)
       %p
         =option.description
 

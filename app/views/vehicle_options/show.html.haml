@@ -1,0 +1,14 @@
+.row
+  %p
+    %b Name
+    =@vehicle_option.name
+  %p
+    %b Description
+    =@vehicle_option.description
+
+.row
+  =link_to "Back to Car", vehicle_path(@vehicle), :class => 'button'
+.row
+  =link_to "Remove Option?",
+    @vehicle_option, :method => :delete, :data => { :confirm => "Eh?" },
+    :class => 'secondary button'

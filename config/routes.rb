@@ -1,7 +1,6 @@
 MCGHomeWork::Application.routes.draw do
-  resources :vehicles do 
-    resources :vehicle_options
-  end
+  resources :vehicles
+  resources :vehicle_options
   root :to => 'vehicles#index'
 
 

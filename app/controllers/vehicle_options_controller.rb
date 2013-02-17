@@ -1,4 +1,9 @@
 class VehicleOptionsController < ApplicationController
+  def show
+    @vehicle_option = VehicleOption.find(params[:id])
+    @vehicle = Vehicle.find(@vehicle_option.vehicle_id)
+  end
+
   def new
     @vehicle = Vehicle.find(params[:vehicle_id])
     @vehicle_option = @vehicle.vehicle_options.new
@@ -15,8 +20,8 @@ class VehicleOptionsController < ApplicationController
   end
 
   def destroy
-    @vehicle = Vehicle.find(params[:vehicle_id])
-    @vehicle_option.find(params[:id])
+    @vehicle_option = VehicleOption.find(params[:id])
+    @vehicle = Vehicle.find(@vehicle_option.vehicle_id)
     @vehicle_option.destroy
     redirect_to vehicle_path(@vehicle), :notice => "Option removed"
   end
