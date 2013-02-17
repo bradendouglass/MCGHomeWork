@@ -1,15 +1,14 @@
-%h1 Listing vehicles
+%h1 List of Vehicles
 
 %table
   %tr
-    %th Stock num
-    %th Vin
+    %th Stock Number
+    %th VIN
     %th Year
     %th Make
     %th Model
     %th Price
     %th Status
-    %th Photo
     %th
     %th
     %th
@@ -23,11 +22,11 @@
       %td= vehicle.model
       %td= vehicle.price
       %td= vehicle.status
-      %td= vehicle.photo
-      %td= link_to 'Show', vehicle
-      %td= link_to 'Edit', edit_vehicle_path(vehicle)
-      %td= link_to 'Destroy', vehicle, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Show', vehicle, :class => 'small button' 
+      %td= link_to 'Edit', edit_vehicle_path(vehicle), :class => 'small button' 
+      %td= link_to 'Destroy', vehicle, :method => :delete,
+        :data => { :confirm => 'Are you sure?' }, :class => 'small alert button'
 
 %br
 
-= link_to 'New Vehicle', new_vehicle_path
+= link_to 'New Vehicle', new_vehicle_path, :class => 'medium success button'
