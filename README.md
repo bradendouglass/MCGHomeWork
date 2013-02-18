@@ -8,4 +8,3 @@
 ##Hickups
 
 * The search only searches make. There is a select built that will eventually allow one to select which item they want to search
-* 
