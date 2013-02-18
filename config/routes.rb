@@ -1,5 +1,8 @@
 MCGHomeWork::Application.routes.draw do
-  resources :customers
+  resources :customers do
+    resources :vehicles
+  end
+
 
 
   resources :vehicles

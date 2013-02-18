@@ -5,9 +5,10 @@ class CreateCustomers < ActiveRecord::Migration
       t.string :address
       t.string :city
       t.string :state
-      t.reference :vehicle
+      t.references :vehicle
 
       t.timestamps
     end
+    add_index :customers, :vehicle_id
   end
 end
