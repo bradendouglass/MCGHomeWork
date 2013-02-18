@@ -33,7 +33,7 @@
         =link_to "#{option.name}", vehicle_option_path(option)
       %p
         =option.description
-    =link_to "New Option", new_vehicle_option_path(:vehicle_id => @vehicle.id),
+    =link_to "New Option", new_vehicle_option_path(:vehicle_id => @vehicle),
       :class => 'small button'
 
 .row
