@@ -4,7 +4,9 @@
   .six.columns
     =form_tag vehicles_path, :method => :get do
       =text_field_tag :search, params[:search]
-      =submit_tag "Search", :class => "small secondary button"
+      .six.columns
+        -#=select_tag :field, options_for_select(@search_columns)
+        =submit_tag "Search", :class => "small secondary button"
 
 
 .row

@@ -4,9 +4,9 @@ class Vehicle < ActiveRecord::Base
   
   mount_uploader :photo, VehicleUploader
   
-  def self.search(query)
+  def self.search(query, field)
     if query
-      where('vin like ?', "%#{query}%")
+      where('make like ?', "%#{query}%")
     else
       scoped
     end

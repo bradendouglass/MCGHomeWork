@@ -1,7 +1,8 @@
 class VehiclesController < ApplicationController
   helper_method :sort_column, :sort_direction
   def index
-    @vehicles = Vehicle.search(params[:search]).order(sort_column + " " + sort_direction)
+    @vehicles = Vehicle.search(params[:search], params[:field]).order(sort_column + " " + sort_direction)
+    @search_columns = {'Status' => 'status', 'Stock #' => 'stock_num', 'Model' => 'model', 'Make' => 'make', 'Year' => 'year'}
   end
 
   def show
