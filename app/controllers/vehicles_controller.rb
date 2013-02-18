@@ -1,6 +1,7 @@
 class VehiclesController < ApplicationController
+  helper_method :sort_column, :sort_direction
   def index
-    @vehicles = Vehicle.all
+    @vehicles = Vehicle.search(params[:search]).order(sort_column + " " + sort_direction)
   end
 
   def show
@@ -43,5 +44,14 @@ class VehiclesController < ApplicationController
   def destroy
     @vehicle = Vehicle.find(params[:id])
     @vehicle.destroy
+  end
+
+  private
+  def sort_column
+    params[:sort] || 'stock_num'
+  end
+
+  def sort_direction
+    params[:direction] || 'asc'
   end
 end

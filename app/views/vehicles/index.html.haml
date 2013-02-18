@@ -1,32 +1,47 @@
 %h1 List of Vehicles
 
-%table
-  %tr
-    %th Stock Number
-    %th VIN
-    %th Year
-    %th Make
-    %th Model
-    %th Price
-    %th Status
-    %th
-    %th
-    %th
+.row
+  .six.columns
+    =form_tag vehicles_path, :method => :get do
+      =text_field_tag :search, params[:search]
+      =submit_tag "Search", :class => "small secondary button"
 
-  - @vehicles.each do |vehicle|
+
+.row
+  %table
     %tr
-      %td= vehicle.stock_num
-      %td= vehicle.vin
-      %td= vehicle.year
-      %td= vehicle.make
-      %td= vehicle.model
-      %td= vehicle.price
-      %td= vehicle.status
-      %td= link_to 'Show', vehicle, :class => 'small button' 
-      %td= link_to 'Edit', edit_vehicle_path(vehicle), :class => 'small button' 
-      %td= link_to 'Destroy', vehicle, :method => :delete,
-        :data => { :confirm => 'Are you sure?' }, :class => 'small alert button'
+      %th 
+        = sorted_link 'stock_num', 'Stock Number'
+      %th 
+        = sorted_link 'vin'
+      %th 
+        = sorted_link 'year'
+      %th 
+        = sorted_link 'make'
+      %th 
+        = sorted_link 'model'
+      %th 
+        = sorted_link 'price'
+      %th 
+        = sorted_link 'status'
+      %th
+      %th
+      %th
 
-%br
+    - @vehicles.each do |vehicle|
+      %tr
+        %td= vehicle.stock_num
+        %td= vehicle.vin
+        %td= vehicle.year
+        %td= vehicle.make
+        %td= vehicle.model
+        %td= vehicle.price
+        %td= vehicle.status
+        %td= link_to 'Show', vehicle, :class => 'small button' 
+        %td= link_to 'Edit', edit_vehicle_path(vehicle), :class => 'small button' 
+        %td= link_to 'Destroy', vehicle, :method => :delete,
+          :data => { :confirm => 'Are you sure?' }, :class => 'small alert button'
 
-= link_to 'New Vehicle', new_vehicle_path, :class => 'medium success button'
+  %br
+
+  = link_to 'New Vehicle', new_vehicle_path, :class => 'medium success button'
