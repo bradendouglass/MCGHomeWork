@@ -6,13 +6,13 @@ class VehicleOptionsController < ApplicationController
 
   def new
     @vehicle = Vehicle.find(params[:vehicle_id])
-    @vehicle_option = @vehicle.vehicle_options.new
+    @vehicle_option = @vehicle.vehicle_option.new
   end
 
   def create
     @vehicle = Vehicle.find(params[:vehicle_id])
-    @vehicle_options = @vehicle.vehicle_options.new(params[:vehicle_options])
-    if @vehicle_options.save?
+    @vehicle_option = @vehicle.vehicle_option.new(params[:vehicle_option])
+    if @vehicle_option.save?
       redirect_to vehicle_path(@vehicle), :notice => "Successfully added vehicle option"
     else
       render :new, :error => "There was an error adding the vehicle option. Please try again"
