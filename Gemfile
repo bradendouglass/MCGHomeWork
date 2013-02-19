@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'haml-rails'
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'smarter_csv'
 
 
 # Gems used only for assets and not required

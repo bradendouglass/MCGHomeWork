@@ -49,6 +49,11 @@ class VehiclesController < ApplicationController
     @vehicle.destroy
   end
 
+  def import
+    Vehicle.import(params[:file])
+    redirect_to vehicles_path, :notice => "Import successful"
+  end
+
   private
   def sort_column
     params[:sort] || 'stock_num'
