@@ -37,7 +37,7 @@
         %td= vehicle.year
         %td= vehicle.make
         %td= vehicle.model
-        %td= vehicle.price
+        %td= number_to_currency(vehicle.price)
         %td= vehicle.status
         %td= link_to 'Show', vehicle, :class => 'small button' 
         %td= link_to 'Edit', edit_vehicle_path(vehicle), :class => 'small button' 

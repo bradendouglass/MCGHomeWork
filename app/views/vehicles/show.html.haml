@@ -21,7 +21,7 @@
       = @vehicle.model
     %p
       %b Price:
-      = @vehicle.price
+      = number_to_currency(@vehicle.price)
     %p
       %b Status:
       = @vehicle.status
