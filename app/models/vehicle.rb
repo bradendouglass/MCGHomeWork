@@ -5,10 +5,6 @@ class Vehicle < ActiveRecord::Base
   
   mount_uploader :photo, VehicleUploader
   
-  def car_select_list
-    "#{stock_num}, #{make} #{model}"
-  end
-
   def self.search(query, field)
     if query
       where('make like ?', "%#{query}%")
