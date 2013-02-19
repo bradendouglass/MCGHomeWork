@@ -1,4 +1,4 @@
-%h1 Listing customers
+%h1 Customer Listings 
 
 %table
   %tr
@@ -18,10 +18,10 @@
       %td= customer.city
       %td= customer.state
       %td= customer.vehicle
-      %td= link_to 'Show', customer
-      %td= link_to 'Edit', edit_customer_path(customer)
-      %td= link_to 'Destroy', customer, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Show', customer, :class => 'small button'
+      %td= link_to 'Edit', edit_customer_path(customer), :class => 'small button'
+      %td= link_to 'Destroy', customer, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => 'small alert button'
 
 %br
 
-= link_to 'New Customer', new_customer_path
+= link_to 'New Customer', new_customer_path, :class => 'medium success button'
