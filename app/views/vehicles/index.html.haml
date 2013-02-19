@@ -49,3 +49,9 @@
 .row
   = link_to 'New Vehicle', new_vehicle_path, :class => 'medium success button'
   = link_to "Export Records", '/vehicles.xml', :class => "secondary button"
+
+.row
+  %h3 Importing Records?
+  =form_tag import_vehicles_path, multipart: true do
+    =file_field_tag :file
+    =submit_tag "Bring Em In", :class => 'small secondary button'
