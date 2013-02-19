@@ -6,7 +6,6 @@
     %th Address
     %th City
     %th State
-    %th Vehicle
     %th
     %th
     %th
@@ -17,7 +16,6 @@
       %td= customer.address
       %td= customer.city
       %td= customer.state
-      %td= customer.vehicle_id
       %td= link_to 'Show', customer, :class => 'small button'
       %td= link_to 'Edit', edit_customer_path(customer), :class => 'small button'
       %td= link_to 'Destroy', customer, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => 'small alert button'

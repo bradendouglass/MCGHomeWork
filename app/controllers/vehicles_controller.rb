@@ -23,9 +23,9 @@ class VehiclesController < ApplicationController
 
     respond_to do |format|
       if @vehicle.save
-        format.html { redirect_to @vehicle, notice: 'Vehicle was successfully created.' }
+        redirect_to @vehicle, notice: 'Vehicle was successfully created.'
       else
-        format.html { render action: "new" }
+        render action: "new"
       end
     end
   end
@@ -35,9 +35,9 @@ class VehiclesController < ApplicationController
 
     respond_to do |format|
       if @vehicle.update_attributes(params[:vehicle])
-        format.html { redirect_to @vehicle, notice: 'Vehicle was successfully updated.' }
+        redirect_to @vehicle, notice: 'Vehicle was successfully updated.'
       else
-        format.html { render action: "edit" }
+        render action: "edit"
       end
     end
   end

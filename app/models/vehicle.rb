@@ -1,5 +1,5 @@
 class Vehicle < ActiveRecord::Base
-  attr_accessible :make, :model, :photo, :price, :status, :stock_num, :vin, :year
+  attr_accessible :make, :model, :photo, :price, :status, :stock_num, :vin, :year, :customer_id
   has_many :vehicle_option
   belongs_to :customer
   

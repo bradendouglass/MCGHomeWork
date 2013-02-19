@@ -1,20 +1,32 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = @customer.name
-%p
-  %b Address:
-  = @customer.address
-%p
-  %b City:
-  = @customer.city
-%p
-  %b State:
-  = @customer.state
-%p
-  %b Vehicles:
+.row
+  .six.columns
+    %h3 Customer Info
 
-= link_to 'Edit', edit_customer_path(@customer)
-\|
-= link_to 'Back', customers_path
+    %p
+      %b Name:
+      = @customer.name
+    %p
+      %b Address:
+      = @customer.address
+    %p
+      %b City:
+      = @customer.city
+    %p
+      %b State:
+      = @customer.state
+
+  .six.columns
+    %h3 Vehicles
+    - @vehicles.each do |vehicle|
+      = link_to "#{vehicle.make}, #{vehicle.model}",
+        vehicle_path(vehicle)
+
+.row
+  .twelve.columns
+    = link_to 'Edit', edit_customer_path(@customer),
+      :class => "small button"
+    \|
+    = link_to 'Back', customers_path,
+      :class => "small button"
