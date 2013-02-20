@@ -22,4 +22,8 @@
 
 %br
 
-= link_to 'New Customer', new_customer_path, :class => 'medium success button'
+.row
+  = link_to 'New Customer', new_customer_path,
+    :class => 'medium success button'
+  = link_to 'View Vehicles', vehicles_path,
+    :class => 'secondary button'

@@ -4,9 +4,8 @@
   .six.columns
     =form_tag vehicles_path, :method => :get do
       =text_field_tag :search, params[:search]
-      .six.columns
-        -#=select_tag :field, options_for_select(@search_columns)
-        =submit_tag "Search", :class => "small secondary button"
+      -#=select_tag :field, options_for_select(@search_columns)
+      =submit_tag "Search Make", :class => "small secondary button"
 
 
 .row
@@ -49,6 +48,8 @@
 .row
   = link_to 'New Vehicle', new_vehicle_path, :class => 'medium success button'
   = link_to "Export Records", '/vehicles.xml', :class => "secondary button"
+  = link_to "Show Customers", customers_path,
+    :class => "secondary button"
 
 .row
   %h3 Importing Records?
