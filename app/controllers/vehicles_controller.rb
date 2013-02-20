@@ -48,7 +48,8 @@ class VehiclesController < ApplicationController
 
   def import
     Vehicle.import(params[:file])
-    redirect_to vehicles_path, :notice => "Import successful"
+    redirect_to vehicles_path, 
+      flash[:notice] => "Import successful"
   end
 
   private
