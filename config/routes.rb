@@ -7,6 +7,7 @@ MCGHomeWork::Application.routes.draw do
 
   resources :vehicles do
     collection { post :import }
+    member { post :exchange }
   end
   resources :vehicle_options
   root :to => 'vehicles#index'

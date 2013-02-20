@@ -25,6 +25,10 @@
     %p
       %b Status:
       = @vehicle.status
+    - if @vehicle.status != "Owned"
+      %p 
+        %b Owned By:
+        =@vehicle.customer.name
   .six.columns
     %h3 Vehicle Options
     -@options.each do |option|
@@ -47,3 +51,14 @@
     \|
     = link_to 'Back', vehicles_path,
       :class => 'small button'
+
+.row
+  .six.columns
+    %h3
+      =@header
+    =form_tag exchange_vehicle_path do
+      =select_tag :person, 
+        options_from_collection_for_select(@customers, "id", "name"), :include_blank => true
+      =submit_tag @button,
+        :class => 'small button secondary'
+      

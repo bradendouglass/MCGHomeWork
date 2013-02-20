@@ -15,6 +15,18 @@ class Vehicle < ActiveRecord::Base
     end
   end
 
+  def self.buy(vehicle_id, person_id)
+    owner = Customer.find(person_id)
+    vehicle = Vehicle.find(vehicle_id)
+    if owner.name == "Dealer"
+      vehicle.status = "Owned"
+    else
+      vehicle.status = "For Sale"
+    end
+    vehicle.customer_id = owner.id
+    vehicle.save
+  end
+
   def self.search(query, field)
     if query
       where('make like ?', "%#{query}%")

@@ -10,6 +10,14 @@ class VehiclesController < ApplicationController
   def show
     @vehicle = Vehicle.find(params[:id])
     @options = @vehicle.vehicle_option.all
+    @customers = Customer.all
+    if @vehicle.status == "For Sale"
+      @header = "Buy Vehicle"
+      @button = "Buy Car"
+    else
+      @header = "Sell Vehicle To"
+      @button = "Sell Car"
+    end
   end
 
   def new
@@ -50,6 +58,12 @@ class VehiclesController < ApplicationController
     Vehicle.import(params[:file])
     redirect_to vehicles_path, 
       flash[:notice] => "Import successful"
+  end
+
+  def exchange
+    Vehicle.buy(params[:id], params[:person])
+    redirect_to vehicles_path,
+      flash[:notice] => "Car successfully sold"
   end
 
   private
