@@ -10,7 +10,8 @@ class Vehicle < ActiveRecord::Base
     csv = CSV.parse(file_read, :headers => true)
     csv.each do |row|
        row = row.to_hash.with_indifferent_access
-       Vehicle.create!(row.to_hash.symbolize_keys)
+       Vehicle.create!(row.to_hash.symbolize_keys,
+                      :without_protection => true)
     end
   end
 
