@@ -22,26 +22,23 @@ class VehiclesController < ApplicationController
 
   def create
     @vehicle = Vehicle.new(params[:vehicle])
-
-    respond_to do |format|
-      if @vehicle.save
-        redirect_to @vehicle, notice: 'Vehicle was successfully created.'
-      else
-        render action: "new"
-      end
+    if @vehicle.save
+      flash[:notice] = "Vehicle saved" 
+    else
+      render action: "new"
     end
+      respond_with @vehicle 
   end
 
   def update
     @vehicle = Vehicle.find(params[:id])
 
-    respond_to do |format|
       if @vehicle.update_attributes(params[:vehicle])
-        redirect_to @vehicle, notice: 'Vehicle was successfully updated.'
+        flash[:notice] = 'Vehicle was successfully updated.'
       else
         render action: "edit"
       end
-    end
+      respond_with(@vehicle)
   end
 
   def destroy
