@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+#Fill this in for your dealer
+Customer.create(name: "Dealer Name",
+               address: "Your Street Addr",
+               city: "Your City",
+               state: "Your State")
