@@ -18,10 +18,12 @@
       = @customer.state
 
   .six.columns
-    %h3 Vehicles
-    - @vehicles.each do |vehicle|
-      = link_to "#{vehicle.make}, #{vehicle.model}",
-        vehicle_path(vehicle)
+    %h3 Vehicles Owned
+    %ol
+      - @vehicles.each do |vehicle|
+        %li
+          = link_to "#{vehicle.make}, #{vehicle.model}",
+            vehicle_path(vehicle)
 
 .row
   .twelve.columns
