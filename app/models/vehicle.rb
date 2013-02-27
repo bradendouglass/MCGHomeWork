@@ -1,5 +1,6 @@
 class Vehicle < ActiveRecord::Base
-  attr_accessible :make, :model, :photo, :price, :status, :stock_num, :vin, :year, :customer_id
+  include ActiveModel::ForbiddenAttributesProtection
+  # attr_accessible :make, :model, :photo, :price, :status, :stock_num, :vin, :year, :customer_id
   validates_presence_of :make, :model, :year, :price, :stock_num, :vin
   validates_numericality_of :year, :message => "Years are numerical in nature"
   validates_numericality_of :price, :message => "Please remove all money symbols (ie: '$')"

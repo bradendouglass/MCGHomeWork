@@ -29,7 +29,7 @@ class VehiclesController < ApplicationController
   end
 
   def create
-    @vehicle = Vehicle.new(params[:vehicle])
+    @vehicle = Vehicle.new(vehicle_params)
     if @vehicle.save
       flash[:notice] = "Vehicle saved" 
     else
@@ -41,7 +41,7 @@ class VehiclesController < ApplicationController
   def update
     @vehicle = Vehicle.find(params[:id])
 
-      if @vehicle.update_attributes(params[:vehicle])
+      if @vehicle.update_attributes(vehicle_params)
         flash[:notice] = 'Vehicle was successfully updated.'
       else
         render action: "edit"
@@ -74,5 +74,12 @@ class VehiclesController < ApplicationController
 
   def sort_direction
     params[:direction] || 'asc'
+  end
+  
+  def vehicle_params
+    params.require(:vehicle).permit(:make, :model,
+                                    :photo, :price,
+                                    :status, :stock_num,
+                                    :vin, :year, :customer_id)
   end
 end
