@@ -17,7 +17,7 @@ class CustomersController < ApplicationController
   end
 
   def create
-    @customer = Customer.new(params[:customer])
+    @customer = Customer.new(customer_params)
       if @customer.save
         redirect_to @customer, notice: 'Customer was successfully created.'
       else
@@ -27,7 +27,7 @@ class CustomersController < ApplicationController
 
   def update
     @customer = Customer.find(params[:id])
-      if @customer.update_attributes(params[:customer])
+      if @customer.update_attributes(customer_params)
         redirect_to @customer, notice: 'Customer was successfully updated.'
       else
         render action: "edit"
@@ -39,5 +39,11 @@ class CustomersController < ApplicationController
     @customer.destroy
 
     redirect_to customers_url
+  end
+
+  private
+
+  def customer_params
+    params.require(:customer).permit(:address, :city, :name, :state)
   end
 end
