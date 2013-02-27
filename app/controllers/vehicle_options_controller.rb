@@ -11,7 +11,7 @@ class VehicleOptionsController < ApplicationController
 
   def create
     @vehicle = Vehicle.find(params[:vehicle_option][:vehicle_id])
-    @vehicle_option = @vehicle.vehicle_option.new(params[:vehicle_option])
+    @vehicle_option = @vehicle.vehicle_option.new(vehicle_option_params)
     if @vehicle_option.save
       redirect_to vehicle_path(@vehicle), :notice => "Successfully added vehicle option"
     else
@@ -24,5 +24,9 @@ class VehicleOptionsController < ApplicationController
     @vehicle = Vehicle.find(@vehicle_option.vehicle_id)
     @vehicle_option.destroy
     redirect_to vehicle_path(@vehicle), :notice => "Option removed"
+  end
+
+  def vehicle_option_params
+    params.require(:vehicle_option).permit(:description, :name, :vehicle_id)
   end
 end
