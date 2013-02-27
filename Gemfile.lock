@@ -30,6 +30,11 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.2)
     aws_cf_signer (0.1.1)
+    better_errors (0.7.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+    binding_of_caller (0.7.1)
+      debug_inspector (>= 0.0.1)
     builder (3.0.4)
     carrierwave (0.8.0)
       activemodel (>= 3.2.0)
@@ -38,6 +43,7 @@ GEM
     cloudinary (1.0.44)
       aws_cf_signer
       rest-client
+    coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -51,6 +57,7 @@ GEM
       sass (~> 3.1)
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
+    debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -121,6 +128,10 @@ GEM
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.7)
+    strong_parameters (0.2.0)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
+      railties (~> 3.0)
     thor (0.17.0)
     tilt (1.3.3)
     treetop (1.4.12)
@@ -140,6 +151,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  better_errors
+  binding_of_caller
   carrierwave
   cloudinary
   coffee-rails (~> 3.2.1)
@@ -150,5 +163,6 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   smarter_csv
   sqlite3
+  strong_parameters
   uglifier (>= 1.0.3)
   zurb-foundation
