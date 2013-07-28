@@ -11,6 +11,7 @@ gem 'carrierwave'
 gem 'cloudinary'
 gem 'smarter_csv'
 gem 'strong_parameters'
+gem 'mina'
 
 
 # Gems used only for assets and not required
